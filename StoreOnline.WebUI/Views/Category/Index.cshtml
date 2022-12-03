@@ -1,0 +1,50 @@
+﻿@model IEnumerable<StoreOnline.WebUI.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>Listado de Estudiantes</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriesName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriesDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.creation_date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriesName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriesDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.creation_date)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CategoryId }) |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
